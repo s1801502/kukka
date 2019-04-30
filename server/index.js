@@ -24,9 +24,13 @@ app.get('/haeKaikki', async (req, res) => {
 });
 
 app.post('/haeKukka', async (req, res) => {
+    try {
+        const tulos = await kukka.haeKukka(req.body.tunniste);
+        res.send({tulos: tulos.kyselynTulos});
+    } catch (error) {
+        res.send({virhe: error.message});
+    }
     
-    const tulos = await kukka.haeKukka(req.body.tunniste);
-    res.send({tulos: tulos.kyselynTulos});
 });
 
 
@@ -36,7 +40,7 @@ app.post('/lisaaKukka', async (req, res) => {
         const tulos = await kukka.lisaaKukka(req.body);
         res.send(tulos.kyselynTulos);
     } catch (error) {
-        res.send({virhe: 'Tapahtui virhe'})
+        res.send({virhe: error.message});
     }
     
     

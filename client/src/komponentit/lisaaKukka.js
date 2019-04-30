@@ -6,7 +6,7 @@ import Virhe from './virhe';
 const LisaaKukka = ({ valittu }) => {
     
     const [onnistui, setOnnistui] = useState(false);
-    const [virhe, setVirhe] = useState(false);
+    const [virhe, setVirhe] = useState('');
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -46,15 +46,17 @@ const LisaaKukka = ({ valittu }) => {
         if (vastausJson.muutetutRivitLkm)
             await setOnnistui(true);
 
-        else if(vastausJson.virhe)
-            await setVirhe(true);
+        else if(vastausJson.virhe) {
+            
+            await setVirhe(vastausJson.virhe);
+        }
 
     };
 
     return (
         
         <div>
-            {virhe ? <Virhe /> : (onnistui ? <Onnistui /> : <div>
+            {virhe ? <Virhe error={virhe} /> : (onnistui ? <Onnistui /> : <div>
             <h1 className="w3-center tulos w3-text-red">Syötä tiedot</h1>
             <LisaaUusiKukkaForm handleOnSubmit={handleOnSubmit} valittu={valittu}/>
             </div>)}

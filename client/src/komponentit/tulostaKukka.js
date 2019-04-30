@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const TulostaKukka = ({ kukka }) => {
-    console.log(kukka);
+    
     return (
         <div className="tablekysely">
             <h1 className="w3-text-red tulos w3-center">Haun tuottama kukka</h1>
