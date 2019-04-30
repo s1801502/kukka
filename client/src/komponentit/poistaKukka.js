@@ -32,7 +32,7 @@ const PoistaKukka = ({ id }) => {
 
     return (
         <div>
-            {onnistui ? <h1>Poistit kukan</h1> : <h1>Jotain meni pieleen</h1>}
+    {onnistui ? (<div><h1 className="w3-text-red">Onneksi olkoon!</h1><h2>Poistit kukan onnistuneesti.</h2></div>) : <h1>Jotain meni pieleen</h1>}
         </div>
     );
 };

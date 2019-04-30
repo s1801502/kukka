@@ -40,7 +40,8 @@ const HaeKukka = () => {
         <form className="haeKukkaTable" onSubmit={handleOnSubmit}>
           <div className="flex">
             <label>Kukan tunniste: </label>
-            <input className="w3-input w3-center" type="text" style={{ width: '4em' }} maxLength="4" name="tunniste" required /></div>
+            <input className="w3-input w3-center" type="text" style={{ width: '4em' }} maxLength="4" name="tunniste" 
+            pattern="[0-9]{1,4}" placeholder="Ex: 12" required /></div>
             <input type="submit" value="Lähetä"
             className="w3-button w3-card-4 w3-ripple w3-round fontti ylamarginaali" />
         </form>
