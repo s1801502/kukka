@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import LisaaUusiKukkaForm from './lisaaUusiForm';
 import Onnistui from './onnistui';
+import Virhe from './virhe';
 
-const LisaaKukka = ({valittu}) => {
-
-    const [ onnistui, setOnnistui] = useState(false);
+const LisaaKukka = ({ valittu }) => {
+    
+    const [onnistui, setOnnistui] = useState(false);
+    const [virhe, setVirhe] = useState(false);
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
 
+        
         const tiedot = !valittu ? {
             kukanTunniste: e.target.kukanTunniste.value,
             nimi: e.target.nimi.value,
@@ -43,15 +46,18 @@ const LisaaKukka = ({valittu}) => {
         if (vastausJson.muutetutRivitLkm)
             await setOnnistui(true);
 
+        else if(vastausJson.virhe)
+            await setVirhe(true);
+
     };
 
     return (
         
         <div>
-            {onnistui ? <Onnistui /> : <div>
+            {virhe ? <Virhe /> : (onnistui ? <Onnistui /> : <div>
             <h1 className="w3-center tulos w3-text-red">Syötä tiedot</h1>
             <LisaaUusiKukkaForm handleOnSubmit={handleOnSubmit} valittu={valittu}/>
-            </div>}
+            </div>)}
         </div> 
 
     );

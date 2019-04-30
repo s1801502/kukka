@@ -2,8 +2,6 @@ import React from 'react';
 
 const LisaaKukkaTable = ({ valittu }) => {
     
-    
-
     return (
         <table className="w3-center tablekysely" style={{ padding: 25 }}>
             <tbody>

@@ -32,8 +32,14 @@ app.post('/haeKukka', async (req, res) => {
 
 app.post('/lisaaKukka', async (req, res) => {
     
-    const tulos = await kukka.lisaaKukka(req.body);
-    res.send(tulos.kyselynTulos);
+    try {
+        const tulos = await kukka.lisaaKukka(req.body);
+        res.send(tulos.kyselynTulos);
+    } catch (error) {
+        res.send({virhe: 'Tapahtui virhe'})
+    }
+    
+    
 });
 
 app.post('/paivitaKukka', async (req, res) => {
