@@ -56,7 +56,7 @@ const Kirjautumislomake = ({ setKirjauduttu }) => {
                             <td><input type="text" name="user" className="w3-input" style={{width: '10em'}} required /></td></tr>
 
                         <tr><td className="w3-left w3-padding"><label>Salasana: </label></td>
-                            <td><input type="text" name="password" className="w3-input" style={{width: '10em'}} /></td></tr>
+                            <td><input type="password" name="password" className="w3-input" style={{width: '10em'}} /></td></tr>
 
                         <tr><td className="w3-left w3-padding"><label>Portti: </label></td>
                             <td><input type="text" name="port" className="w3-input" style={{width: '10em'}} /></td></tr>
