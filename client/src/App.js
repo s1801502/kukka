@@ -12,15 +12,17 @@ function App() {
 
   const [kirjauduttu, setKirjauduttu] = useState(false);
 
-  const onClickHandler = (e) => {
+  const edelliselleSivulle = (e) => {
     e.preventDefault();
-    window.history.back();
+
+    if (window.location.pathname !== "/")
+      window.history.back();  
   }
 
   return (
     <div>
       <Header />
-      <Sisalto kirjauduttu={kirjauduttu} setKirjauduttu={setKirjauduttu} onClickHandler={onClickHandler} />
+      <Sisalto kirjauduttu={kirjauduttu} setKirjauduttu={setKirjauduttu} edelliselleSivulle={edelliselleSivulle} />
       <Footer />
     </div>
   );

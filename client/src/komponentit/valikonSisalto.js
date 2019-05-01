@@ -14,23 +14,23 @@ const ValikonSisalto = ({ setKirjauduttu }) => {
                 Hae kaikki</button></Link>
 
             <Link to="/haeKukka" className="w3-center">
-                <button className="w3-btn w3-round-xxlarge w3-margin w3-large w3-card-4 w3-ripple button">
+                <button className="w3-btn w3-round-xxlarge w3-margin-bottom w3-large w3-card-4 w3-ripple button">
                 Hae kukka</button></Link>
 
             <Link to="/lisaaKukka" className="w3-center">
-                <button className="w3-btn w3-round-xxlarge w3-margin w3-large w3-card-4 w3-ripple button">
+                <button className="w3-btn w3-round-xxlarge w3-margin-bottom w3-large w3-card-4 w3-ripple button">
                 Lisää kukka</button></Link>
 
             <Link to="/muutaKukka" className="w3-center">
-                <button className="w3-btn w3-round-xxlarge w3-margin w3-large w3-card-4 w3-ripple button">
+                <button className="w3-btn w3-round-xxlarge w3-margin-bottom w3-large w3-card-4 w3-ripple button">
                 Muuta kukan tietoja</button></Link>
 
             <Link to="/poistaKukka" className="w3-center">
-                <button className="w3-btn w3-round-xxlarge w3-margin w3-large w3-card-4 w3-ripple button">
+                <button className="w3-btn w3-round-xxlarge w3-margin-bottom w3-large w3-card-4 w3-ripple button">
                 Poista kukka</button></Link>
 
             <Link to="/" className="w3-center">
-                <button className="w3-btn w3-round-xxlarge w3-margin w3-large w3-card-4 w3-ripple button" 
+                <button className="w3-btn w3-round-xxlarge w3-large w3-card-4 w3-ripple button" 
                 onClick={() => setKirjauduttu(false)}>Kirjaudu ulos</button></Link>
 
             </div>
