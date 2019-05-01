@@ -2,13 +2,11 @@ import React from 'react';
 import ValikonSisalto from './valikonSisalto';
 
 
-const Valikko = () => {
+const Valikko = ({ setKirjauduttu }) => {
 
   return (
     <div>
-      
-        <ValikonSisalto />
-      
+        <ValikonSisalto setKirjauduttu={setKirjauduttu} /> 
     </div>
   );
 

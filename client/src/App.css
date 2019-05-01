@@ -79,7 +79,7 @@ button {
 
 .keskikaista {
   
-  height: 470px;
+  height: 480px;
   overflow: auto;
 }
 
@@ -104,24 +104,25 @@ button {
 .valikko {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  
 }
 
 #root {
-  
   margin: 0;
 }
 
 .button-group {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   
   width: 30%;
 }
 
 .button {
   width: 275px;
+  height: 35px;
+  
 }
 
 
