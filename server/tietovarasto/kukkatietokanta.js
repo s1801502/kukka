@@ -9,20 +9,12 @@ const paivitaSql = 'update kukka set nimi = ?, viljelija = ?, lukumaara = ?, kas
 const poistaSql = 'delete from kukka where kukanTunniste = ?';
 
 module.exports = class Kukkatietokanta {
-    constructor(optiot = {
-        host: 'localhost',
-        port: 3306,
-        user: 'miikka',
-        password: 'Tz068rs6',
-        database: 'kukkatietokanta'
-    }) {
-        
+    
+    constructor(optiot) {  
         this.kukat = new Tietokanta(optiot);
-
     }
 
-    haeKaikki() {
-        
+    haeKaikki() {   
         return this.kukat.suoritaKysely(haeKaikkiSql);
     }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Valikko from './komponentit/valikko';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,11 +8,13 @@ import HaeKaikki from './komponentit/haeKaikki';
 import Footer from './komponentit/footer';
 import LisaaKukka from './komponentit/lisaaKukka';
 import HaeKukka from './komponentit/haeKukka';
+import Kirjautumislomake from './komponentit/kirjautumislomake';
 
 
 
 function App() {
 
+  const [kirjauduttu, setKirjauduttu] = useState(false);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -27,10 +29,10 @@ function App() {
       <h1 className="title w3-padding w3-animate-fading">Kukkatietokanta</h1>
       </div>
       <div className="keskikaista">
-      <a href="/" onClick={onClickHandler} ><img src="./kuvat/arrow.png" height="50" alt="linkki etusivulle" /></a>
+      {kirjauduttu && <a href="/" onClick={onClickHandler} ><img src="./kuvat/arrow.png" height="50" alt="linkki etusivulle" /></a>}
       <BrowserRouter>
         <Switch>
-          <Route path="/" render={() => <Valikko />} exact />
+          <Route path="/" render={() => (kirjauduttu ? <Valikko /> : <Kirjautumislomake setKirjauduttu={setKirjauduttu} />)} exact />
           <Route path="/haeKaikki" component={HaeKaikki} />
           <Route path="/haeKukka" component={HaeKukka} />
           <Route path="/lisaaKukka" component={LisaaKukka}/>

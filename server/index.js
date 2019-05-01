@@ -11,9 +11,33 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 3001;
 
 const Kukkatietokanta = require('./tietovarasto/kukkatietokanta');
-const kukka = new Kukkatietokanta();
+let kukka = null; 
 
 app.get('/', (req, res) => {
+
+});
+
+app.post('/kirjaudu', async (req, res) => {
+
+    const { host, port, user, password } = req.body;
+    
+    const optiot = {
+        host,
+        port,
+        user,
+        password,
+        database: 'kukkatietokanta'
+    }
+
+    
+    kukka = await new Kukkatietokanta(optiot);
+        
+    try {
+        const tulos = await kukka.haeKaikki();
+        res.send({onnistui: true});
+    } catch (error) {
+        res.send({onnistui: false});
+    }
 
 });
 
