@@ -47,8 +47,12 @@ const LisaaKukka = ({ valittu }) => {
             await setOnnistui(true);
 
         else if(vastausJson.virhe) {
-            
-            await setVirhe(vastausJson.virhe);
+            if (vastausJson.virhe.toLowerCase().includes('duplicate entry')) {
+                await setVirhe('Antamasi kukan tunniste on jo käytössä');
+            }
+
+            else
+                await setVirhe(vastausJson.virhe);
         }
 
     };

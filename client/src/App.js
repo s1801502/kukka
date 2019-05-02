@@ -15,8 +15,10 @@ function App() {
   const edelliselleSivulle = (e) => {
     e.preventDefault();
 
-    if (window.location.pathname !== "/")
+    if (window.location.pathname !== "/") {
       window.history.back();  
+      document.activeElement.blur();
+    }
   }
 
   return (
